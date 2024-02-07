@@ -1,8 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ExerciseStack from "./ExerciseStack";
 
-const embedId = "Mx9RrNZv2TI";
-
+const embedId = buttonId => {
+    switch (buttonId) {
+        case "cardio":
+        return "_fesO5oNcEs";
+        case "upper":
+        return "UMx9RrNZv2TI";
+        case "lower":
+        return "WUzdhcwT8uM";
+        case "yoga":
+        return "Eml2xnoLpYE";
+        case "pilates":
+        return "C2HX2pNbUCM";
+        case "Rest":
+        return "aO1boUJhjvk";
+        default:
+        return "fesO5oNcEs";
+    }
+    
+}
 const Player = ({ embedId }) => (
   <div className="video-responsive">
     <iframe
