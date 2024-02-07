@@ -1,7 +1,12 @@
 import "./App.css";
+import Exercise from "./Pages/Exercise";
 
 function App() {
-  return <p>Wellness App</p>;
+  return (
+    <>
+      <Exercise />
+    </>
+  );
 }
 
 export default App;
