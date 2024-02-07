@@ -1,7 +1,14 @@
+import React from "react";
+import Meal from "./Pages/Meal";
 import "./App.css";
 
 function App() {
-  return <p>Wellness App</p>;
+  return (
+    <div>
+      <Meal />
+    </div>
+    
+  )
 }
 
 export default App;
