@@ -1,19 +1,25 @@
-import React from "react";
 import Button from 'react-bootstrap/Button';
-
+import workoutOptions from '../utils/workoutOptions';
 
  function ExerciseStack() {
   return (
-    <>
-      <Button id="cardio" variant="primary">Cardio</Button>{' '}
-      <Button id="upper" variant="secondary">Upper Body</Button>{' '}
-      <Button id="lower" variant="success">Lower Body</Button>{' '}
-      <Button id="yoga" variant="warning">Yoga</Button>{' '}
-      <Button id="pilates" variant="danger">Pilates</Button>{' '}
-      <Button id="Rest" variant="info">Rest</Button>{' '}      
-    </>
+    <div>
+      {workoutOptions.map(option => (
+        <Button key={option.id} onClick={() => handleClick(option.embedId)}>
+          {option.id}
+        </Button>
+      ))}
+    </div>
   );
 }
+
+function handleClick(embedId) {
+  // Handle click action here, for example, you can set the src of an iframe
+  console.log("Clicked on embedId:", embedId);
+  console.log(`Video === https://www.youtube.com/embed/${embedId}`)
+  // Example: document.getElementById("your-iframe").src = `https://www.youtube.com/embed/${embedId}`;
+}
+
 
 export default ExerciseStack;
 
