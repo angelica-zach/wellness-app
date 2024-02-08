@@ -8,7 +8,7 @@ const workoutOptions = [
   },
   {
     id: 'upper',
-    embedId: 'UMx9RrNZv2TI',
+    embedId: '0zhvUV1bAVQ',
     image: 'src/pictures/upper.png',
     title: 'Upper Body',
     description: 'Upper body workouts are great for building strength and toning your arms, chest, and back. Try an upper body workout to get started.',
