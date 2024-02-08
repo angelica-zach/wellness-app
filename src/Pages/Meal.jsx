@@ -4,13 +4,15 @@ import foodApi from '../utils/foodAPI';
 import foodImage from '../utils/foodImage';
 
 function Meal() {
-    const [meals, setMeals] = useState();
+    const [meals, setMeals] = useState({breakfast: '', lunch: '', dinner: ''});
     const [mealImage, setMealImage] = useState();
+
+    setMeals
     
     const planMeals = () => {
-        foodApi('day', 1000, 'vegeterian').then((response) => {
-            console.log(response);
-            setMeals(response);
+        foodApi(1000, 'vegeterian').then((response) => {
+            console.log(response.meals);
+            setMeals({...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title});
             console.log(meals);
         }).catch((error) => console.log(error));
     }
@@ -24,6 +26,7 @@ function Meal() {
 
     return (
         <div>
+            
             <button onClick={planMeals}>CLICK</button>
             <button onClick={getMealImage}>Image</button>
             <Image src={mealImage} />
