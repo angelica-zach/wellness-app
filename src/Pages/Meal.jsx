@@ -28,18 +28,20 @@ function Meal() {
     
     // Function to get the meal image
     const getMealImage = (b, l, d) => { 
-        foodImage(b).then((response) => {
-            console.log(response);
-            setBImages(response.data.results[0].image);
-        }).catch((error) => console.log(error));
-        foodImage(l).then((response) => {
-            console.log(response);
-            setLImages(response.data.results[0].image);
-        }).catch((error) => console.log(error));
-        foodImage(d).then((response) => {
-            console.log(response);
-            setDImages(response.data.results[0].image);
-        }).catch((error) => console.log(error));
+        if (b !== '' && l !== '' && d !== '') {
+            foodImage(b).then((response) => {
+                console.log(response);
+                setBImages(response.data.results[0].image);
+            }).catch((error) => console.log(error));
+            foodImage(l).then((response) => {
+                console.log(response);
+                setLImages(response.data.results[0].image);
+            }).catch((error) => console.log(error));
+            foodImage(d).then((response) => {
+                console.log(response);
+                setDImages(response.data.results[0].image);
+            }).catch((error) => console.log(error));
+        }
     }
 
     // UseEffect to get the images
@@ -52,6 +54,13 @@ function Meal() {
         <div>
             <h1>Meal Planner</h1>
             <button onClick={planMeals}>Plan Meals</button>
+            <select name="diet" id="diet">
+                <option value="vegeterian">Vegeterian</option>
+                <option value="ketogenic">Ketogenic</option>
+                <option value="paleo">Paleo</option>
+                <option value="vegan">Vegan</option>
+                <option value="glutenFree">Gluten Free</option>
+            </select>
             <Row>
                 <Col size="md-4">
                     <h3>Breakfast</h3>
