@@ -8,9 +8,9 @@ function Meal() {
     const [meals, setMeals] = useState({ breakfast: '', lunch: '', dinner: '' });
 
     // State to hold the images
-    const [bImage, setBImage] = useState('');
-    const [lImage, setLImage] = useState('');
-    const [dImage, setDImage] = useState('');
+    const [bImages, setBImages] = useState('');
+    const [lImages, setLImages] = useState('');
+    const [dImages, setDImages] = useState('');
 
     // Function to plan the meals
     const planMeals = () => {
@@ -18,41 +18,50 @@ function Meal() {
             console.log(response.meals);
 
             // Set the meals
-            setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });
-
-            // Set the images
-            setBImage(getMealImage(meals.breakfast));
-            console.log(bImage);
-            setLImage(getMealImage(meals.lunch));
-            setDImage(getMealImage(meals.dinner));
+            setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });   
 
             console.log(meals);
         }).catch((error) => console.log(error));
     }
     
     // Function to get the meal image
-    const getMealImage = (meal) => { 
-        foodImage(meal).then((response) => {
-            console.log(response.data.results[0].image);
-            return response.data.results[0].image;
+    const getMealImage = (b, l, d) => { 
+        foodImage(b).then((response) => {
+            console.log(response);
+            setBImages(response.data.results[0].image);
+        }).catch((error) => console.log(error));
+        foodImage(l).then((response) => {
+            console.log(response);
+            setLImages(response.data.results[0].image);
+        }).catch((error) => console.log(error));
+        foodImage(d).then((response) => {
+            console.log(response);
+            setDImages(response.data.results[0].image);
         }).catch((error) => console.log(error));
     }
+
+    // UseEffect to get the images
+    useEffect(() => {
+        getMealImage(meals.breakfast, meals.lunch, meals.dinner);
+    }, [meals]);
+        
 
     return (
         <div>
             
             <button onClick={planMeals}>CLICK</button>
+            <button >CLICK</button>
             <div>
                 <h1>Breakfast: {meals.breakfast}</h1>
                 <h1>Lunch: {meals.lunch}</h1>
                 <h1>Dinner: {meals.dinner}</h1>
             </div>
             <div>
-                <Image src={bImage} />
-                <Image src={lImage} />
-                <Image src={dImage} />
+                <Image src={bImages} />
+                <Image src={lImages} />
+                <Image src={dImages} />
             </div>
-            
+        
         </div>
     )
 }
