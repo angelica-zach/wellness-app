@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+const grid = 8;
+
 const getListStyle = (isDraggingOver) => ({
   background: isDraggingOver ? "lightblue" : "lightgrey",
   padding: 8,
@@ -23,8 +25,6 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
-
-const grid = 8;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
