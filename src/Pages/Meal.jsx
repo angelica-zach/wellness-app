@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from '../Components/Image';
+import Row from '../Components/Row';
+import Col from '../Components/Col';
 import foodApi from '../utils/foodAPI';
 import foodImage from '../utils/foodImage';
 
@@ -14,7 +16,7 @@ function Meal() {
 
     // Function to plan the meals
     const planMeals = () => {
-        foodApi(1000, 'vegeterian').then((response) => {
+        foodApi(2000, 'vegeterian').then((response) => {
             console.log(response.meals);
 
             // Set the meals
@@ -48,20 +50,25 @@ function Meal() {
 
     return (
         <div>
-            
-            <button onClick={planMeals}>CLICK</button>
-            <button >CLICK</button>
-            <div>
-                <h1>Breakfast: {meals.breakfast}</h1>
-                <h1>Lunch: {meals.lunch}</h1>
-                <h1>Dinner: {meals.dinner}</h1>
-            </div>
-            <div>
-                <Image src={bImages} />
-                <Image src={lImages} />
-                <Image src={dImages} />
-            </div>
-        
+            <h1>Meal Planner</h1>
+            <button onClick={planMeals}>Plan Meals</button>
+            <Row>
+                <Col size="md-4">
+                    <h3>Breakfast</h3>
+                    <Image src={bImages} />
+                    <h4>{meals.breakfast}</h4>
+                </Col>
+                <Col size="md-4">
+                    <h3>Lunch</h3>
+                    <Image src={lImages} />
+                    <h4>{meals.lunch}</h4>
+                </Col>
+                <Col size="md-4">
+                    <h3>Dinner</h3>
+                    <Image src={dImages} />
+                    <h4>{meals.dinner}</h4>
+                </Col>
+            </Row>
         </div>
     )
 }
