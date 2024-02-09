@@ -7,33 +7,32 @@ const MyComponent = () => {
 
   const apiKey = 'de43d5ac26mshd8ce4bbe6ee0f4dp109a91jsn667bbbd1a705'; 
 
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get('https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote', {
-        params: {
-          apiKey: apiKey
-        }
+  function fetchData() {
+    setLoading(true);
+    axios
+      .get('https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote', {
+        headers: {
+          'x-rapidapi-host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com',
+          'x-rapidapi-key': apiKey,
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
       });
-      setData(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }
 
   return (
     <div>
-      <button onClick={fetchData} disabled={loading}>
-        {loading ? 'Loading...' : 'Fetch Data'}
-      </button>
-      {data && (
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>{item.name}</li>
-          ))}
-        </ul>
+      <h1>Random Quote</h1>
+      <button onClick={fetchData}>Fetch Data</button>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <p>{data && data.text}</p>
+          <p>{data && data.author}</p>
+        </div>
       )}
     </div>
   );
