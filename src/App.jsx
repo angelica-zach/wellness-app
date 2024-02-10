@@ -1,11 +1,22 @@
-import "./App.css";
+// import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navigation";
+import ListDisplay from "./components/skincarelist";
 import Exercise from "./pages/Exercise";
 
 function App() {
   return (
-    <>
-      <Exercise />
-    </>
+    <Router>
+      <Navbar />
+      <ListDisplay />
+      {/* <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="meals" element={<MealIdeas />} />
+        <Route path="workout" element={<Woutout />} />
+        <Route path="selfcare" element={<Selfcare />} />
+      </Routes> */}
+    </Router>
   );
 }
 
