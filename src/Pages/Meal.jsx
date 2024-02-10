@@ -6,6 +6,10 @@ import foodApi from '../utils/foodAPI';
 import foodImage from '../utils/foodImage';
 
 function Meal() {
+    // State to hold diet and calories
+    const [diet, setDiet] = useState('');
+    const [calories, setCalories] = useState(0);
+
     // State to hold the meals
     const [meals, setMeals] = useState({ breakfast: '', lunch: '', dinner: '' });
 
@@ -16,7 +20,7 @@ function Meal() {
 
     // Function to plan the meals
     const planMeals = () => {
-        foodApi(2000, 'vegeterian').then((response) => {
+        foodApi(calories, diet).then((response) => {
             console.log(response.meals);
 
             // Set the meals
@@ -53,6 +57,38 @@ function Meal() {
     return (
         <div>
             <h1>Meal Planner</h1>
+            <form onSubmit={handleSubmit}>
+                <Container className="mt-3 px-5">
+                    <Row className="mb-3">
+                        <Col size="12">
+                            <input
+                                className="form-control"
+                                type="text"
+                                placeholder="Username"
+                                name="username"
+                                onChange={(e) =>
+                                    setFormData({ ...formData, username: e.target.value })
+                                }
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="mb-3">
+                        <Col size="12">
+                            <input
+                                className="form-control"
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                onChange={(e) =>
+                                    setFormData({ ...formData, password: e.target.value })
+                                }
+                            />
+                        </Col>
+                    </Row>
+                    <button type="submit" className="btn btn-success">
+                        Submit
+                    </button>
+                </Container>
             <button onClick={planMeals}>Plan Meals</button>
             <select name="diet" id="diet">
                 <option value="vegeterian">Vegeterian</option>
