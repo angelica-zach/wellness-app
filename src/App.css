@@ -10,5 +10,14 @@
 .jumbotron {
   background-image: url("./assets/yoga2.jpeg");
   background-size: cover;
-  height: 96vb;
+  height: 94.7vh;
+}
+
+.headlinebox {
+  background-color: whitesmoke;
+}
+
+.boxcontainer {
+  height: 90vh;
+  width: 90%;
 }

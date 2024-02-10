@@ -5,7 +5,7 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1">Fitness</span>
+          <span className="navbar-brand mb-0 h1">Fuel Fit</span>
           <button
             className="navbar-toggler"
             type="button"
