@@ -1,26 +1,24 @@
 import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navigation";
+import Home from "./Pages/Home";
+import Exercise from "./pages/Exercise";
+import Selfcare from "./pages/Selfcare";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ExerciseStack from "./Pages/ExerciseStack"
-// import Meal from "./Pages/Meal"
-
-
-export default function App() {
-
+function App() {
   return (
-    <main className="bg-dark">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/excercise"
-            element={<ExerciseStack />}
-          />
-          {/* <Route
-            path="/meal"
-            element={<Meal />}
-          /> */}
-        </Routes>
-      </BrowserRouter>
-    </main>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="meals" element={<MealIdeas />} /> */}
+        <Route path="workout" element={<Exercise />} />
+        <Route path="selfcare" element={<Selfcare />} />
+      </Routes>
+    </Router>
   );
 }
+
+export default App;
