@@ -7,6 +7,11 @@ const itemsData = [
   //test data
   { id: uuid(), content: "Exercise 1" },
   { id: uuid(), content: "Exercise 2" },
+  { id: uuid(), content: "Exercise 3" },
+  { id: uuid(), content: "Exercise 4" },
+  { id: uuid(), content: "Exercise 5" },
+  { id: uuid(), content: "Exercise 6" },
+  { id: uuid(), content: "Exercise 7" },
 ];
 
 const columnsData = {
