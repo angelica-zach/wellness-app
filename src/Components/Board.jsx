@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 
 const itemsData = [
   { id: uuid(), content: "Exercise 1" },
@@ -17,13 +17,37 @@ const columnsData = {
 export default function Board() {
   const [columns, setColumns] = useState(columnsData);
 
+  function onDragEnd(result, columns, setColumns) {
+    //if dropped outside column, do nothing
+    if (!result.destination) return;
+    //get relevant column's items from result object
+    const { source, destination } = result;
+    const column = columns[source.droppableId];
+    const copiedItems = [...column.items];
+
+    //remove the item from the list, then put it back in where it was dropped
+    const [removed] = copiedItems.splice(source.index, 1);
+    copiedItems.splice(destination.index, 0, removed);
+
+    //update the state of columns with the new item order
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...column,
+        items: copiedItems,
+      },
+    });
+  }
+
   return (
     <div className="container-fluid">
       <div className="row"></div>
-      <DragDropContext onDragEnd={(result) => console.log(result)}>
+      <DragDropContext
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
+      >
         {Object.entries(columns).map(([id, column]) => {
           return (
-            <Droppable droppableID={id} key={id}>
+            <Droppable droppableId={id} key={id}>
               {(provided, snapshot) => {
                 return (
                   <div
@@ -32,7 +56,7 @@ export default function Board() {
                     style={{
                       background: snapshot.isDraggingOver
                         ? "lightblue"
-                        : "green",
+                        : "lightgrey",
                       padding: 4,
                       width: 250,
                       minHeight: 500,
@@ -57,7 +81,7 @@ export default function Board() {
                                   margin: "0 0 8px 0",
                                   minHeight: "50px",
                                   backgroundColor: snapshot.isDragging
-                                    ? "green"
+                                    ? "red"
                                     : "blue",
                                   color: "white",
                                   ...provided.draggableProps.style,
@@ -70,6 +94,7 @@ export default function Board() {
                         </Draggable>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 );
               }}
