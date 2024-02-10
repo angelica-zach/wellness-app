@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useState } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 import Columns from "./Columns";
 
