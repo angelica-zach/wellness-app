@@ -1,4 +1,5 @@
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
+import DragExercise from "./DragExercise";
 
 export default function Columns({ columns }) {
   return (
@@ -24,34 +25,7 @@ export default function Columns({ columns }) {
                   >
                     {column.items.map((item, index) => {
                       return (
-                        <Draggable
-                          key={item.id}
-                          draggableId={item.id}
-                          index={index}
-                        >
-                          {(provided, snapshot) => {
-                            return (
-                              <div
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                style={{
-                                  userSelect: "none",
-                                  padding: 16,
-                                  margin: "0 0 8px 0",
-                                  minHeight: "50px",
-                                  backgroundColor: snapshot.isDragging
-                                    ? "red"
-                                    : "blue",
-                                  color: "white",
-                                  ...provided.draggableProps.style,
-                                }}
-                              >
-                                {item.content}
-                              </div>
-                            );
-                          }}
-                        </Draggable>
+                        <DragExercise key={item.id} item={item} index={index} />
                       );
                     })}
                     {provided.placeholder}
