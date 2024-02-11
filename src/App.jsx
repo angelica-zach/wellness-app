@@ -2,12 +2,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navigation";
-import ListDisplay from "./components/skincarelist";
+import SelfCare from "./Pages/selfcare";
 function App() {
   return (
     <Router>
       <Navbar />
-      <ListDisplay />
+      <SelfCare />
       {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="meals" element={<MealIdeas />} />
