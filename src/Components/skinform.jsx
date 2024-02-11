@@ -17,11 +17,11 @@ function Form(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="label-wrapper">
+      <h3 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
           Skin Care Routine
         </label>
-      </h2>
+      </h3>
       <input
         type="text"
         id="new-todo-input"
