@@ -2,11 +2,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import ColorSchemesExample from "./components/navbar";
-import Home from "./pages/Home";
-import MealIdeas from "./pages/MealIdeas";
-import Woutout from "./pages/Workout";
-import Selfcare from "./pages/Selfcare";
+import ColorSchemesExample from "./components/navbar.jsx";
+import Home from "./pages/Home.jsx";
+import MealIdeas from "./pages/Meal.jsx";
+import Workout from "./pages/Workout.jsx";
+import Selfcare from "./pages/Selfcare.jsx";
+import Footer from "./components/footer.jsx"
 
 
 
@@ -14,12 +15,13 @@ function App() {
   return (
     <Router>
       <ColorSchemesExample />
-      { <Routes>
+       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="meals" element={<MealIdeas />} />
-        <Route path="workout" element={<Woutout />} />
+        <Route path="/Meal" element={<MealIdeas />} />
+        <Route path="workout" element={<Workout />} />
         <Route path="selfcare" element={<Selfcare />} />
-      </Routes> }
+      </Routes> 
+      <Footer/>
     </Router>
   );
 }

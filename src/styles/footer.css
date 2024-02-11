@@ -1,0 +1,38 @@
+.footer_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start; 
+  }
+  
+  .footer_about {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    margin: 0 10px;
+    margin-top: auto;    
+  }
+  
+    
+  .social_icon {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10px;
+  }
+  .footer_social {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .social_icon li {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  
+  

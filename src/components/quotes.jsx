@@ -1,22 +1,41 @@
-import axios from "axios";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-function QuoteDisplay() {
-  const [quote, setQuote] = useState(null);
-  useEffect(() => {
+const QuoteDisplay = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const apiKey = 'de43d5ac26mshd8ce4bbe6ee0f4dp109a91jsn667bbbd1a705'; 
+
+  function fetchData() {
+    setLoading(true);
     axios
-      .get(
-        "https://quotes.rest/qod.json?api_key=6p0pz6n6AEbBsGciMFAruFEXV2LEKLDOcnox2tV0"
-      )
-      .then((response) => {
-        console.log(response.data.contents);
-        setQuote(response.data.contents.quotes[0]);
+      .get('https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote', {
+        headers: {
+          'x-rapidapi-host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com',
+          'x-rapidapi-key': apiKey,
+        },
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
       });
-  });
-  return <div>{quote ? <h1> {quote.quote}</h1> : <h1>Loading...</h1>}</div>;
-}
+  }
+
+  return (
+    <div>
+      <h1>Quote of the day</h1>
+      <button onClick={fetchData}>Fetch Data</button>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <p>{data && data.text}</p>
+          <p>{data && data.author}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default QuoteDisplay;
