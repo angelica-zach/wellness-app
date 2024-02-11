@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from '../Components/Image';
+import Container from '../Components/Container';
 import Row from '../Components/Row';
 import Col from '../Components/Col';
 import foodApi from '../utils/foodAPI';
@@ -19,12 +20,15 @@ function Meal() {
     const [dImages, setDImages] = useState('');
 
     // Function to plan the meals
-    const planMeals = () => {
-        foodApi(calories, diet).then((response) => {
-            console.log(response.meals);
+    const planMeals = (e) => {
+        e.preventDefault(); 
 
+
+        foodApi(calories, diet).then((response) => {
             // Set the meals
-            setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });   
+            setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });  
+            
+            console.log(response, calories, diet);
 
             console.log(meals);
         }).catch((error) => console.log(error));
@@ -57,18 +61,18 @@ function Meal() {
     return (
         <div>
             <h1>Meal Planner</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={planMeals}>
                 <Container className="mt-3 px-5">
                     <Row className="mb-3">
                         <Col size="12">
                             <input
                                 className="form-control"
                                 type="text"
-                                placeholder="Username"
-                                name="username"
-                                onChange={(e) =>
-                                    setFormData({ ...formData, username: e.target.value })
-                                }
+                                placeholder="Would you like to try a diet"
+                                name="diet"
+                                onChange={(event) => setDiet(event.target.value)}
+                                
+                                
                             />
                         </Col>
                     </Row>
@@ -76,27 +80,20 @@ function Meal() {
                         <Col size="12">
                             <input
                                 className="form-control"
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                onChange={(e) =>
-                                    setFormData({ ...formData, password: e.target.value })
-                                }
+                                type="number"
+                                placeholder="how many calories would you like to consume today?"
+                                name="calories"
+                                onChange={(event) => setCalories(event.target.value)}
+                            
+                                
                             />
                         </Col>
                     </Row>
                     <button type="submit" className="btn btn-success">
-                        Submit
+                        Plan Yor Meals
                     </button>
                 </Container>
-            <button onClick={planMeals}>Plan Meals</button>
-            <select name="diet" id="diet">
-                <option value="vegeterian">Vegeterian</option>
-                <option value="ketogenic">Ketogenic</option>
-                <option value="paleo">Paleo</option>
-                <option value="vegan">Vegan</option>
-                <option value="glutenFree">Gluten Free</option>
-            </select>
+            </form>
             <Row>
                 <Col size="md-4">
                     <h3>Breakfast</h3>
