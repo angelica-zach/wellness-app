@@ -7,7 +7,8 @@ import Home from "./pages/Home.jsx";
 import Meal from "./pages/Meal.jsx";
 import Workout from "./pages/Workout.jsx";
 import Selfcare from "./pages/Selfcare.jsx";
-import Footer from "./components/footer.jsx"
+import Footer from "./components/footer.jsx";
+import Exercise from "./pages/exercise.jsx";
 
 
 
@@ -18,7 +19,7 @@ function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="Meal" element={<Meal />} />
-        <Route path="workout" element={<Workout />} />
+        <Route path="workout" element={<Exercise />} />
         <Route path="selfcare" element={<Selfcare />} />
       </Routes> 
       <Footer/>

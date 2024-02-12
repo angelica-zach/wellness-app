@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Image from '../Components/Image';
-import Container from '../Components/Container';
-import Row from '../Components/Row';
-import Col from '../Components/Col';
+import Image from '../components/Image/index.jsx';
+import Container from '../components/Container/index.jsx';
+import Row from '../components/Row/index.jsx';
+import Col from '../components/Col/index.jsx';
 import foodApi from '../utils/foodAPI';
-import foodImage from '../utils/foodImage';
+import foodImage from '../utils/foodimage';
 
 
 function Meal() {
