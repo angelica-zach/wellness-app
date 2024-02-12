@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 import Columns from "./Columns";
+import ExerciseBox from "./ExerciseBox";
 
 const itemsData = [
   //test data
@@ -17,23 +18,33 @@ const itemsData = [
 const columnsData = {
   [uuid()]: {
     name: "Monday",
-    items: itemsData,
+    items: [],
+    startingBox: false,
   },
   [uuid()]: {
     name: "Tuesday",
     items: [],
+    startingBox: false,
   },
   [uuid()]: {
     name: "Wednesday",
     items: [],
+    startingBox: false,
   },
   [uuid()]: {
     name: "Thursday",
     items: [],
+    startingBox: false,
   },
   [uuid()]: {
     name: "Friday",
     items: [],
+    startingBox: false,
+  },
+  [uuid()]: {
+    name: "Exercises",
+    items: itemsData,
+    startingBox: true,
   },
 };
 
@@ -89,7 +100,12 @@ export default function Board() {
       onDragEnd={(result) => handleOnDragEnd(result, columns, setColumns)}
     >
       <div className="container-fluid">
-        <Columns columns={columns} />
+        <div className="row">
+          <Columns columns={columns} />
+        </div>
+        <div className="row">
+          <ExerciseBox columns={columns} />
+        </div>
       </div>
     </DragDropContext>
   );
