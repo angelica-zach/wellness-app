@@ -74,7 +74,6 @@ function Meal() {
         getMealImage(meals.breakfast, meals.lunch, meals.dinner);
     }, [meals]);
 
-
     return (
         <div className='meal-page'>
             <h1 id='meal-title'>Meal Planner</h1>
