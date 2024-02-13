@@ -13,13 +13,31 @@ export default function DragExercise({ item, index }) {
               userSelect: "none",
               padding: 16,
               margin: "0 0 8px 0",
+              minWidth: "150px",
               minHeight: "50px",
               backgroundColor: snapshot.isDragging ? "red" : "blue",
               color: "white",
               ...provided.draggableProps.style,
             }}
           >
-            {item.content}
+            
+
+            {/* BUILD CARD BELOW */}
+
+            <div className="card" style={{
+              maxHeight: "200px",
+              maxWidth: "150px"
+            }}>
+              <p>{item.content}</p>
+              <p>{item.description}</p>
+              <img 
+              src={item.icon} 
+              alt="icon" 
+              style={{
+                maxHeight: "50px",
+                maxWidth: "50px"
+              }}/>
+            </div>
           </div>
         );
       }}

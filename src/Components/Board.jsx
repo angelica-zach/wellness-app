@@ -2,37 +2,17 @@ import { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 import Columns from "./Columns";
+import itemsData from "../utils/itemsData";
 
-const itemsData = [
-  //test data
-  { id: uuid(), content: "Exercise 1" },
-  { id: uuid(), content: "Exercise 2" },
-  { id: uuid(), content: "Exercise 3" },
-  { id: uuid(), content: "Exercise 4" },
-  { id: uuid(), content: "Exercise 5" },
-  { id: uuid(), content: "Exercise 6" },
-  { id: uuid(), content: "Exercise 7" },
-];
-
+// EACH WEEKDAY SHOULD BE AN INDIVIDUAL DRAG AND DROP CONTAINER (not currently) 
 const columnsData = {
   [uuid()]: {
-    name: "Monday",
+    name: "Excersizes",
     items: itemsData,
   },
+  
   [uuid()]: {
-    name: "Tuesday",
-    items: [],
-  },
-  [uuid()]: {
-    name: "Wednesday",
-    items: [],
-  },
-  [uuid()]: {
-    name: "Thursday",
-    items: [],
-  },
-  [uuid()]: {
-    name: "Friday",
+    name: "| Monday | Tuesday | Wednesday | Thursday | Friday |",
     items: [],
   },
 };
