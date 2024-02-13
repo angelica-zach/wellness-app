@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const QuoteDisplay = () => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Set loading to true initially
 
   const apiKey = 'de43d5ac26mshd8ce4bbe6ee0f4dp109a91jsn667bbbd1a705'; 
 
+  useEffect(() => {
+    fetchData(); // Fetch data when component mounts
+  }, []); // Empty dependency array ensures the effect runs only once
+
   function fetchData() {
-    setLoading(true);
     axios
       .get('https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote', {
         headers: {
@@ -24,8 +27,6 @@ const QuoteDisplay = () => {
 
   return (
     <div>
-      <h1>Quote of the day</h1>
-      <button onClick={fetchData}>Fetch Data</button>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -37,5 +38,5 @@ const QuoteDisplay = () => {
     </div>
   );
 };
-
 export default QuoteDisplay;
+

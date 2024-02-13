@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../styles/Selfcare.css"
 import QuoteDisplay from "../components/quotes";
 import ListDisplay from "../components/skincarelist";
 import Stretch from "../components/stretchplayer";
@@ -7,6 +7,9 @@ function SelfCare() {
   return (
     <div>
       <h1 className="display-1 mb-5">Inspirational quote</h1>
+      <div className="quote mb-5 ">
+      <QuoteDisplay />
+      </div>
       <div className="container">
         <div className="row">
           <div className="col mb-3 ">
