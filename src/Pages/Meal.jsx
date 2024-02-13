@@ -14,6 +14,8 @@ function Meal() {
 
     // State to hold the meals
     const [meals, setMeals] = useState({ breakfast: '', lunch: '', dinner: '' });
+  
+    // State to hold the nutritional information
     const [nutritional, setNutritional] = useState({ calories: '', fat: '', protein: ''});
 
     // State to hold the images
