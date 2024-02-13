@@ -1,3 +1,48 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+
+/* MEAL */
+.meal-page {
+  background-color: #f5f5f5;
+}
+#meal-title {
+  font-size: 1.5em;
+ display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  padding-bottom: 1%;
+}
+
+.forms {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #865454;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+ .images {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  padding-left: 5%;
+ }
+
+ .images h3 {
+  margin: 0;
+  padding: 5%;
+  font-size: 1.5em;
+  color: #865454;
+ }
