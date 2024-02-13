@@ -1,5 +1,5 @@
-import "./App.css";
 import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navigation";
 import Home from "./Pages/Home";
@@ -14,12 +14,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="meals" element={<Meal />} />
+        <Route path="meals" element={<Meal/>} /> 
         <Route path="workout" element={<Exercise />} />
         <Route path="selfcare" element={<Selfcare />} />
       </Routes>
     </Router>
   );
+
 }
 
 export default App;
