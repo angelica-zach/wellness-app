@@ -7,7 +7,7 @@ import itemsData from "../utils/itemsData";
 // EACH WEEKDAY SHOULD BE AN INDIVIDUAL DRAG AND DROP CONTAINER (not currently) 
 const columnsData = {
   [uuid()]: {
-    name: "Excersizes",
+    name: "Excercises",
     items: itemsData,
   },
   
