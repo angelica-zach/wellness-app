@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Image from '../Components/Image';
 import Container from '../Components/Container';
 import Row from '../Components/Row';
@@ -22,6 +23,9 @@ function Meal() {
     const [bImages, setBImages] = useState('');
     const [lImages, setLImages] = useState('');
     const [dImages, setDImages] = useState('');
+
+    // State to hols Animation
+    const [animate, setAnimate] = useState(false);
 
     // Function to plan the meals
     const planMeals = (e) => {
@@ -104,7 +108,9 @@ function Meal() {
                     
                 </div>
                 <div className='d-flex justify-content-center'>
-                    <button type="submit" className="btn btn-success d-flex justify-content-center col-md-2">
+                    <button onClick={() => {
+                        setAnimate(!animate);
+                    }} type="submit" className="btn btn-success d-flex justify-content-center col-md-2">
                         Plan Yor Meals
                     </button>
                 </div>
@@ -114,7 +120,7 @@ function Meal() {
 
 
             <Row>
-                <div className='images d-flex justify-content-around align-items-center'>
+                <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
                     <Col size="md-4">
                         <h3>Breakfast</h3>
                         <Image src={bImages} />
@@ -131,11 +137,11 @@ function Meal() {
                         <Image src={dImages} />
                         <h4>{meals.dinner}</h4>
                     </Col>
-                </div>
+                </motion.div>
             </Row>
 
 
-            <div className='nutr d-flex justify-content-around'>
+            <motion.div animate={{ scale: animate ? 1 : 0 }} className='nutr d-flex justify-content-around'>
                 <Row>
                     <Col size="md-12">
                         <h3>Nutritional Information</h3>
@@ -146,7 +152,7 @@ function Meal() {
                     </Col>
                 </Row>
 
-            </div>
+            </motion.div>
 
         </div>
     )
