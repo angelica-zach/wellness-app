@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Home() {
+function Home() {
   return (
     <div className="jumbotron">
       <div className="boxcontainer d-flex align-items-center justify-content-end">
@@ -12,3 +12,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
