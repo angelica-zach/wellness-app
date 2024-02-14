@@ -17,7 +17,10 @@ function Meal() {
     const [meals, setMeals] = useState({ breakfast: '', lunch: '', dinner: '' });
 
     // State to hold the nutritional information
-    const [nutritional, setNutritional] = useState({ calories: '', fat: '', protein: '' });
+    const [nutritional, setNutritional] = useState({ calories: '', carbohydrates: '', fat: '', protein: '' });
+    const [bNutritional, setBNutritional] = useState({ calories: '', fat: '', protein: '' });
+    const [lNutritional, setLNutritional] = useState({ calories: '', fat: '', protein: '' });
+    const [dNutritional, setDNutritional] = useState({ calories: '', fat: '', protein: '' });
 
     // State to hold the images
     const [bImages, setBImages] = useState('');
@@ -76,6 +79,7 @@ function Meal() {
     // UseEffect to get the images
     useEffect(() => {
         getMealImage(meals.breakfast, meals.lunch, meals.dinner);
+        
     }, [meals]);
 
     return (
@@ -114,8 +118,7 @@ function Meal() {
                         Plan Yor Meals
                     </button>
                 </div>
-                
-
+        
             </form>
 
 
