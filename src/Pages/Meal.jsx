@@ -19,9 +19,7 @@ function Meal() {
 
     // State to hold the nutritional information
     const [nutritional, setNutritional] = useState({ calories: '', carbohydrates: '', fat: '', protein: '' });
-    const [bNutritional, setBNutritional] = useState({ calories: '', fat: '', protein: '' });
-    const [lNutritional, setLNutritional] = useState({ calories: '', fat: '', protein: '' });
-    const [dNutritional, setDNutritional] = useState({ calories: '', fat: '', protein: '' });
+    const [nutritionalInfo, setNutritionalInfo] = useState({ breakfast: '', lunch: '', dinner: '' });
 
     // State to hold the images
     const [bImages, setBImages] = useState('');
@@ -50,6 +48,8 @@ function Meal() {
         foodApi(calories, diet).then((response) => {
             // Set the meals
             setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });
+            setNutritionalInfo({ ...nutritionalInfo, breakfast: response.meals[0].sourceUrl, lunch: response.meals[1].sourceUrl, dinner: response.meals[2].sourceUrl });
+            console.log(nutritionalInfo);
 
             // Set the nutritional information
             setNutritional({ ...nutritional, calories: response.nutrients.calories, carbohydrates: response.nutrients.carbohydrates, fat: response.nutrients.fat, protein: response.nutrients.protein });
@@ -79,29 +79,29 @@ function Meal() {
     }
 
     // Function to get the nutritional information
-    const getNutritional = (b, l, d) => {
-        if (b !== '' && l !== '' && d !== '') {
-            foodNutritional(b).then((response) => {
-                console.log(response);
-                setBNutritional({ ...bNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
-            }).catch((error) => console.log(error));
-            foodNutritional(l).then((response) => {
-                console.log(response);
-                setLNutritional({ ...lNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
-            }).catch((error) => console.log(error));
-            foodNutritional(d).then((response) => {
-                console.log(response);
-                setDNutritional({ ...dNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
-            }).catch((error) => console.log(error));
-        }
-    }
+    // const getNutritional = (b, l, d) => {
+    //     if (b !== '' && l !== '' && d !== '') {
+    //         foodNutritional(mealsId.breakfast).then((response) => {
+    //             console.log(response);
+    //             // setBNutritional({ ...bNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+    //         }).catch((error) => console.log(error));
+    //         foodNutritional(l).then((response) => {
+    //             console.log(response);
+    //             // setLNutritional({ ...lNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+    //         }).catch((error) => console.log(error));
+    //         foodNutritional(d).then((response) => {
+    //             console.log(response);
+    //             // setDNutritional({ ...dNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+    //         }).catch((error) => console.log(error));
+    //     }
+    // }
 
     // UseEffect to get the images and nutritional information
     useEffect(() => {
         getMealImage(meals.breakfast, meals.lunch, meals.dinner);
-        console.log(bNutritional, lNutritional, dNutritional);
+        // console.log(bNutritional, lNutritional, dNutritional);
         // getNutritional(meals.breakfast, meals.lunch, meals.dinner);
-        
+
     }, [meals]);
 
     return (
@@ -131,7 +131,7 @@ function Meal() {
                             onChange={(event) => setCalories(event.target.value)}
                         />
                     </div>
-                    
+
                 </div>
                 <div className='d-flex justify-content-center'>
                     <button onClick={() => {
@@ -149,44 +149,73 @@ function Meal() {
                         <h3>Breakfast</h3>
                         <Image src={bImages} />
                         <h4>{meals.breakfast}</h4>
+                        <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
                     </Col>
                     <Col size="md-4">
                         <h3>Lunch</h3>
                         <Image src={lImages} />
                         <h4>{meals.lunch}</h4>
-
+                        <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
                     </Col>
                     <Col size="md-4">
                         <h3>Dinner</h3>
                         <Image src={dImages} />
                         <h4>{meals.dinner}</h4>
+                        <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
                     </Col>
                 </motion.div>
             </Row>
             <Row>
                 <Col size="md-12">
                     <div className='nutritional d-flex justify-content-center'>
-                         <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
+                        <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
                     </div>
-                    
+
                 </Col>
             </Row>
-           
-            <motion.div animate={{ scale: animateNutr ? 1 : 0 }} className='nutr d-flex justify-content-around'>
-                
+
+            <motion.div animate={{ scale: animateNutr ? 1 : 0 }} className='nutr d-flex flex-column justify-content-around'>
+
                 <Row>
-                    <Col className="" size="md-12">
-                        <h3>Nutritional Information</h3>
-                        <p>Calories: {nutritional.calories}</p>
-                        <p>Carbohydrates: {nutritional.carbohydrates}</p>
-                        <p>Fat: {nutritional.fat}</p>
-                        <p>Protein: {nutritional.protein}</p>
+
+                    <Col size="md-3">
+
+
+                        <p>
+                            <strong>Calories:</strong> {nutritional.calories}
+                        </p>
+
                     </Col>
+                    <Col size="md-3">
+
+                        <p>
+                            <strong>Carbohydrates:</strong> {nutritional.carbohydrates}
+                        </p>
+
+                    </Col>
+                    <Col size="md-3">
+
+                        <p>
+                            <strong>Fat:</strong> {nutritional.fat}
+                        </p>
+
+                    </Col>
+                    <Col size="md-3">
+
+                        <p>
+                            <strong>Protein:</strong> {nutritional.protein}
+                        </p>
+
+
+                    </Col>
+
+
+
                 </Row>
 
             </motion.div>
 
-        </div>
+        </div >
     )
 }
 

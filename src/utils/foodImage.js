@@ -19,3 +19,39 @@ export default function search(query) {
     });
 
 }
+
+
+// {
+//     "meals": [
+//         {
+//             "id": 632577,
+//             "imageType": "jpg",
+//             "title": "Apple Pie Pancakes",
+//             "readyInMinutes": 45,
+//             "servings": 4,
+//             "sourceUrl": "https://spoonacular.com/apple-pie-pancakes-632577"
+//         },
+//         {
+//             "id": 645315,
+//             "imageType": "jpg",
+//             "title": "Greek Inspired Spring Omelet",
+//             "readyInMinutes": 20,
+//             "servings": 1,
+//             "sourceUrl": "https://spoonacular.com/greek-inspired-spring-omelet-645315"
+//         },
+//         {
+//             "id": 652433,
+//             "imageType": "jpg",
+//             "title": "Moroccan Lemon Shish Kebabs",
+//             "readyInMinutes": 45,
+//             "servings": 8,
+//             "sourceUrl": "https://spoonacular.com/moroccan-lemon-shish-kebabs-652433"
+//         }
+//     ],
+//         "nutrients": {
+//         "calories": 290.81,
+//             "protein": 26.53,
+//                 "fat": 10.17,
+//                     "carbohydrates": 25.69
+//     }
+// }

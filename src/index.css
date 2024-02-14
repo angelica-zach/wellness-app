@@ -34,16 +34,25 @@ body {
 }
 
  .images {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 10px;
-  padding-left: 5%;
+  margin: 2%;
  }
 
- .images h3 {
+ .images h3, .images h4 {
   margin: 0;
   padding: 5%;
   font-size: 1.5em;
   color: #865454;
  }
 
+ .nutr {
+  margin-left: 2%;
+  padding: 5%;
+  padding-bottom: 15%;
+ }
+
+ .nutr p {
+  margin: 0;
+  padding: 5%;
+  font-size: 1.5em;
+  color: #865454;
+ }
