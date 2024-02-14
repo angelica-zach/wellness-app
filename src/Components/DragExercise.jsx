@@ -32,8 +32,22 @@ export default function DragExercise({ item, index }) {
                 ...provided.draggableProps.style,
               }}
             >
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={item.image} />
+              <Card
+                style={{
+                  maxHeight: "400px",
+                  maxWidth: "200px",
+                  fontSize: "14px",
+                }}
+              >
+                <Card.Img
+                  variant="top"
+                  src={item.image}
+                  style={{
+                    maxHeight: "400px",
+                    maxWidth: "200px",
+                    fontSize: "14px",
+                  }}
+                />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>

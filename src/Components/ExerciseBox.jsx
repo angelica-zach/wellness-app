@@ -23,12 +23,8 @@ export default function ExerciseBox({ columns }) {
                     style={{
                       display: "grid",
                       gridTemplateColumns: "auto auto auto auto auto auto",
-                      border: "solid",
-                      background: snapshot.isDraggingOver
-                        ? "lightblue"
-                        : "lightgrey",
                       padding: 4,
-                      minHeight: 300,
+                      minHeight: 250,
                     }}
                   >
                     {column.items.map((item, index) => {
