@@ -16,13 +16,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="meals" element={<Meal/>} /> 
+        <Route path="meals" element={<Meal />} />
         <Route path="workout" element={<Exercise />} />
         <Route path="selfcare" element={<Selfcare />} />
       </Routes>
     </Router>
   );
-
 }
 
 export default App;
