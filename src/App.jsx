@@ -1,11 +1,11 @@
-import "./App.css";
 import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/navigation";
-import Home from "./Pages/Home";
-import Exercise from "./pages/Exercise";
-import ExerciseCards from "./pages/ExerciseStack";
-import Selfcare from "./pages/Selfcare";
+import Navbar from "./Components/navigation";
+import Home from "./pages/Home";
+import Exercise from "./pages/exercise";
+import Selfcare from "./pages/selfcare";
+import Meal from "./pages/Meal";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="meals" element={<ExerciseCards />} />
+        <Route path="meals" element={<Meal />} />
         <Route path="workout" element={<Exercise />} />
         <Route path="selfcare" element={<Selfcare />} />
       </Routes>
