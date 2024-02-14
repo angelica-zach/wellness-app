@@ -13,7 +13,7 @@
 Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos
 
 
-URL of deployed app:  
+URL of deployed app:  https://group4-wellness-app.netlify.app/
 
 ## Features
 
