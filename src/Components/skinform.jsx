@@ -3,12 +3,13 @@ import { useState } from "react";
 
 function Form(props) {
   const [name, setName] = useState("");
-
+  // resigsters changes
   function handleChange(event) {
     setName(event.target.value);
   }
 
   function handleSubmit(event) {
+    // prevents autoclear
     event.preventDefault();
     if (name.trim()) {
       props.onSubmit(name);
