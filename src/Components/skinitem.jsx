@@ -1,3 +1,5 @@
+import React from "react";
+
 function SkinCareItem(props) {
   return (
     <li className="todo stack-small">
