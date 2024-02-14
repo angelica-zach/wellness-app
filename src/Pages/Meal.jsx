@@ -135,7 +135,7 @@ function Meal() {
                 </div>
                 <div className='d-flex justify-content-center'>
                     <button onClick={() => {
-                        setAnimate(!animate);
+                        setAnimate(true);
                     }} type="submit" className="btn btn-success d-flex justify-content-center col-md-2">
                         Plan Yor Meals
                     </button>
