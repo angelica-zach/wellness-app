@@ -20,12 +20,15 @@ export default function ExerciseBox({ columns }) {
                     {...provided.droppableProps}
                     ref={provided.innerRef}
                     style={{
+                      display: "grid",
+                      gridTemplateColumns: "auto auto auto auto auto auto auto",
+                      border: "solid",
                       background: snapshot.isDraggingOver
                         ? "lightblue"
                         : "lightgrey",
                       padding: 4,
-                      // width: 250,
-                      // minHeight: 500,
+                      width: "90rem",
+                      minHeight: 300,
                     }}
                   >
                     {column.items.map((item, index) => {
