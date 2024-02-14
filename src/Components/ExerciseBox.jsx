@@ -21,13 +21,12 @@ export default function ExerciseBox({ columns }) {
                     ref={provided.innerRef}
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "auto auto auto auto auto auto auto",
+                      gridTemplateColumns: "auto auto auto auto auto auto",
                       border: "solid",
                       background: snapshot.isDraggingOver
                         ? "lightblue"
                         : "lightgrey",
                       padding: 4,
-                      width: "90rem",
                       minHeight: 300,
                     }}
                   >

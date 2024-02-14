@@ -1,6 +1,8 @@
+import { v4 as uuid } from "uuid";
+
 const workoutOptions = [
   {
-    id: "cardio",
+    id: uuid(),
     embedId: "_fesO5oNcEs",
     image: "src/assets/cardio.png",
     title: "Cardio",
@@ -8,7 +10,7 @@ const workoutOptions = [
       "Cardio is a great way to get your heart rate up and burn calories. Try a cardio workout to get your blood pumping and your body moving.",
   },
   {
-    id: "upper",
+    id: uuid(),
     embedId: "0zhvUV1bAVQ",
     image: "src/assets/upper.png",
     title: "Upper Body",
@@ -16,7 +18,7 @@ const workoutOptions = [
       "Upper body workouts are great for building strength and toning your arms, chest, and back. Try an upper body workout to get started.",
   },
   {
-    id: "lower",
+    id: uuid(),
     embedId: "WUzdhcwT8uM",
     image: "src/assets/lower.png",
     title: "Lower Body",
@@ -24,7 +26,7 @@ const workoutOptions = [
       "Lower body workouts are great for building strength and toning your legs and glutes. Try a lower body workout to get started.",
   },
   {
-    id: "yoga",
+    id: uuid(),
     embedId: "Eml2xnoLpYE",
     image: "src/assets/yoga_icon.png",
     title: "Yoga",
@@ -32,7 +34,7 @@ const workoutOptions = [
       "Yoga is a great way to improve flexibility, strength, and balance. Try a yoga workout to get started.",
   },
   {
-    id: "pilates",
+    id: uuid(),
     embedId: "C2HX2pNbUCM",
     image: "src/assets/pilates.png",
     title: "Pilates",
@@ -40,7 +42,7 @@ const workoutOptions = [
       "Pilates is a great way to improve core strength, flexibility, and posture. Try a pilates workout to get started.",
   },
   {
-    id: "rest",
+    id: uuid(),
     embedId: "aO1boUJhjvk",
     image: "src/assets/relax.png",
     title: "Rest",

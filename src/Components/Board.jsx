@@ -3,6 +3,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 import Columns from "./Columns";
 import ExerciseBox from "./ExerciseBox";
+import workoutOptions from "../utils/workoutOptions";
 
 const itemsData = [
   //test data
@@ -43,7 +44,7 @@ const columnsData = {
   },
   [uuid()]: {
     name: "Exercises",
-    items: itemsData,
+    items: workoutOptions,
     startingBox: true,
   },
 };
