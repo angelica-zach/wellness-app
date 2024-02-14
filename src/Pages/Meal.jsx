@@ -149,19 +149,19 @@ function Meal() {
                             <h3>Breakfast</h3>
                             <Image src={bImages} />
                             <h4>{meals.breakfast}</h4>
-                            <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
+                            <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
                         </Col>
                         <Col size="md-4">
                             <h3>Lunch</h3>
                             <Image src={lImages} />
                             <h4>{meals.lunch}</h4>
-                            <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
+                            <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
                         </Col>
                         <Col size="md-4">
                             <h3>Dinner</h3>
                             <Image src={dImages} />
                             <h4>{meals.dinner}</h4>
-                            <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
+                            <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
                         </Col>
                     </motion.div>
                 </Row>
