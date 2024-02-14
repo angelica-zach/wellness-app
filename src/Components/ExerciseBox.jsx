@@ -13,7 +13,7 @@ export default function ExerciseBox({ columns }) {
         return (
           <div key={id} className="container-fluid">
             <h2>{column.name}</h2>
-            <Droppable droppableId={id} key={id}>
+            <Droppable droppableId={id} key={id} direction="horizontal">
               {(provided, snapshot) => {
                 return (
                   <div
@@ -24,8 +24,8 @@ export default function ExerciseBox({ columns }) {
                         ? "lightblue"
                         : "lightgrey",
                       padding: 4,
-                      width: 250,
-                      minHeight: 500,
+                      // width: 250,
+                      // minHeight: 500,
                     }}
                   >
                     {column.items.map((item, index) => {
