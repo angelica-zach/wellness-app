@@ -3,10 +3,10 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Navbar from "./Components/navigation";
-import Home from "./pages/Home";
-import Exercise from "./pages/exercise";
-import Selfcare from "./pages/selfcare";
-import Meal from "./pages/Meal";
+import Home from "./Pagesss/Home";
+import Exercise from "./Pagesss/exercise";
+import Selfcare from "./Pagesss/selfcare";
+import Meal from "./Pagesss/Meal";
 
 function App() {
   return (
