@@ -167,9 +167,9 @@ function Meal() {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <div className='nutritional d-flex justify-content-center'>
+                        <motion.div animate={{ scale: animate ? 1 : 0 }} className='nutritional d-flex justify-content-center'>
                             <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
-                        </div>
+                        </motion.div>
 
                     </Col>
                 </Row>
