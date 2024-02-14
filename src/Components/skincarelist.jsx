@@ -6,22 +6,22 @@ import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 function ListDisplay(props) {
+  // if there is no local storage blank array else saved items
   const [items, setItems] = useState(
     !localStorage.getItem("items")
       ? []
       : JSON.parse(localStorage.getItem("items"))
   );
-
+  // getting from  local
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("items"));
-    console.log("Stored items:", items); // Debugging
     if (items) {
       setItems(items);
     }
   }, []);
 
   useEffect(() => {
-    console.log("Updated items:", items); // Debugging
+    // saving to local
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
@@ -42,6 +42,7 @@ function ListDisplay(props) {
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
+        {/* map to load */}
         {items.map((item) => (
           <SkinCareItem
             id={item.id}

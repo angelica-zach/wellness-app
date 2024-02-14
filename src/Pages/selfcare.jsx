@@ -4,6 +4,7 @@ import Stretch from "../Components/stretchplayer";
 function SelfCare() {
   return (
     <div>
+      {/* quote */}
       <h1 className="display-1 mb-5">
         "Nothing is impossible, the word itself says im possible"
       </h1>
@@ -11,9 +12,11 @@ function SelfCare() {
       <div className="container">
         <div className="row">
           <div className="col mb-3 ">
+            {/* skincare list */}
             <ListDisplay />
           </div>
           <div className="col mb-3">
+            {/* stretching videos */}
             <Stretch />
           </div>
           <div className="col mb-3">
