@@ -42,12 +42,15 @@ Download by pressing the green code button and git clone into your terminal . Al
 ## Credits
 
    #### APIS
+  spoonacular
   #### Packages
   react-youtube
   nanoid
   react-dom
   react router
   axios
+  beautiful-dnd
+  uuid
 ## Technologies used
 Bootstrap
 React
