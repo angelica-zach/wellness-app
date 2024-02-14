@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navigation";
 import Home from "./Pages/Home";
-import Exercise from "./pages/Exercise";
-import Selfcare from "./pages/Selfcare";
+import Exercise from "./Pages/Exercise";
+import Selfcare from "./Pages/selfcare";
 
 function App() {
   return (
