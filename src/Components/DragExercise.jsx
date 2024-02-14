@@ -34,8 +34,7 @@ export default function DragExercise({ item, index }) {
             >
               <Card
                 style={{
-                  maxHeight: "400px",
-                  maxWidth: "200px",
+                  width: "12rem",
                   fontSize: "14px",
                 }}
               >

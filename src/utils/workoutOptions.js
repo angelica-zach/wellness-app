@@ -4,7 +4,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "_fesO5oNcEs",
-    image: "../public/cardio.png",
+    image: "/cardio.png",
     title: "Cardio",
     description:
       "Cardio is a great way to get your heart rate up and burn calories.",
@@ -12,7 +12,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "0zhvUV1bAVQ",
-    image: "../public/upper.png",
+    image: "/upper.png",
     title: "Upper Body",
     description:
       "Upper body workouts are great for building strength and toning your arms, chest, and back. ",
@@ -20,7 +20,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "WUzdhcwT8uM",
-    image: "../public/lower.png",
+    image: "/lower.png",
     title: "Lower Body",
     description:
       "Lower body workouts are great for building strength and toning your legs and glutes.",
@@ -28,7 +28,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "Eml2xnoLpYE",
-    image: "../public/yoga_icon.png",
+    image: "/yoga_icon.png",
     title: "Yoga",
     description:
       "Yoga is a great way to improve flexibility, strength, and balance.",
@@ -36,7 +36,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "C2HX2pNbUCM",
-    image: "../public/pilates.png",
+    image: "/pilates.png",
     title: "Pilates",
     description:
       "Pilates is a great way to improve core strength, flexibility, and posture.",
@@ -44,7 +44,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "aO1boUJhjvk",
-    image: "../public/relax.png",
+    image: "/relax.png",
     title: "Rest",
     description: "Rest is an important part of any fitness routine.",
   },

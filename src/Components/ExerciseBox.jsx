@@ -20,14 +20,14 @@ export default function ExerciseBox({ columns }) {
                   <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "auto auto auto auto auto auto",
-                      padding: 4,
-                      minHeight: 200,
-                    }}
+                    // style={{
+                    //   display: "grid",
+                    //   gridTemplateColumns: "auto auto auto auto auto auto",
+                    //   padding: 4,
+                    //   minHeight: 200,
+                    // }}
                   >
-                    <div class="card-group">
+                    <div className="card-group">
                       {column.items.map((item, index) => {
                         return (
                           <DragExercise
