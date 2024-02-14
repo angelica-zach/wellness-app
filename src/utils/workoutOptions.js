@@ -4,15 +4,15 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "_fesO5oNcEs",
-    image: "./src/assets/cardio.png",
+    image: "/cardio.png",
     title: "Cardio",
     description:
-      "Cardio is a great way to get your heart rate up and burn calories.",
+      "Cardio is a great way to get your heart rate up, burn calories and improve your health.",
   },
   {
     id: uuid(),
     embedId: "0zhvUV1bAVQ",
-    image: "./src/assets/upper.png",
+    image: "/upper.png",
     title: "Upper Body",
     description:
       "Upper body workouts are great for building strength and toning your arms, chest, and back. ",
@@ -20,7 +20,7 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "WUzdhcwT8uM",
-    image: "./src/assets/lower.png",
+    image: "/lower.png",
     title: "Lower Body",
     description:
       "Lower body workouts are great for building strength and toning your legs and glutes.",
@@ -28,25 +28,26 @@ const workoutOptions = [
   {
     id: uuid(),
     embedId: "Eml2xnoLpYE",
-    image: "./src/assets/yoga_icon.png",
+    image: "/yoga_icon.png",
     title: "Yoga",
     description:
-      "Yoga is a great way to improve flexibility, strength, and balance.",
+      "Yoga is a great way to improve flexibility, strength, and your overall balance.",
   },
   {
     id: uuid(),
     embedId: "C2HX2pNbUCM",
-    image: "./src/assets/pilates.png",
+    image: "/pilates.png",
     title: "Pilates",
     description:
-      "Pilates is a great way to improve core strength, flexibility, and posture.",
+      "Pilates is a great way to improve core strength, flexibility, and especially posture.",
   },
   {
     id: uuid(),
     embedId: "aO1boUJhjvk",
-    image: "./src/assets/relax.png",
+    image: "/relax.png",
     title: "Rest",
-    description: "Rest is an important part of any fitness routine.",
+    description:
+      "Rest is an important part of any fitness routine. Make sure you recover fully.",
   },
 ];
 

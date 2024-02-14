@@ -12,7 +12,7 @@ export default function ExerciseBox({ columns }) {
     <>
       {Object.entries(filteredCol).map(([id, column]) => {
         return (
-          <div key={id} className="container-fluid">
+          <div key={id} className="container-fluid m-3">
             <h2>{column.name}</h2>
             <Droppable droppableId={id} key={id} direction="horizontal">
               {(provided, snapshot) => {
@@ -20,19 +20,25 @@ export default function ExerciseBox({ columns }) {
                   <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "auto auto auto auto auto auto",
-                      padding: 4,
-                      minHeight: 250,
-                    }}
+                    // style={{
+                    //   display: "grid",
+                    //   gridTemplateColumns: "auto auto auto auto auto auto",
+                    //   padding: 4,
+                    //   minHeight: 200,
+                    // }}
                   >
-                    {column.items.map((item, index) => {
-                      return (
-                        <DragExercise key={item.id} item={item} index={index} />
-                      );
-                    })}
-                    {provided.placeholder}
+                    <div className="card-group">
+                      {column.items.map((item, index) => {
+                        return (
+                          <DragExercise
+                            key={item.id}
+                            item={item}
+                            index={index}
+                          />
+                        );
+                      })}
+                      {provided.placeholder}
+                    </div>
                   </div>
                 );
               }}

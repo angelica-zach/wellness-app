@@ -26,16 +26,15 @@ export default function DragExercise({ item, index }) {
               {...provided.dragHandleProps}
               style={{
                 userSelect: "none",
-                padding: 16,
-                margin: "6px 6px 6px 6px",
+                padding: 4,
+                margin: "2px 2px 2px 2px",
                 minHeight: "50px",
                 ...provided.draggableProps.style,
               }}
             >
               <Card
                 style={{
-                  maxHeight: "400px",
-                  maxWidth: "200px",
+                  width: "12rem",
                   fontSize: "14px",
                 }}
               >
@@ -43,7 +42,7 @@ export default function DragExercise({ item, index }) {
                   variant="top"
                   src={item.image}
                   style={{
-                    maxHeight: "400px",
+                    maxHeight: "150px",
                     maxWidth: "200px",
                     fontSize: "14px",
                   }}
