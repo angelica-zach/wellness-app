@@ -7,6 +7,7 @@ import Col from '../Components/Col';
 import Alert from '../Components/Alert';
 import foodApi from '../utils/foodAPI';
 import foodImage from '../utils/foodImage';
+import foodNutritional from '../utils/foodNutiritional';
 
 function Meal() {
     // State to hold diet and calories
@@ -27,8 +28,9 @@ function Meal() {
     const [lImages, setLImages] = useState('');
     const [dImages, setDImages] = useState('');
 
-    // State to hols Animation
+    // State to hold Animation
     const [animate, setAnimate] = useState(false);
+    const [animateNutr, setAnimateNutr] = useState(false);
 
     // Function to plan the meals
     const planMeals = (e) => {
@@ -58,7 +60,7 @@ function Meal() {
         }).catch((error) => console.log(error));
     }
 
-    // Function to get the meal image
+    // Function to get the meal image 
     const getMealImage = (b, l, d) => {
         if (b !== '' && l !== '' && d !== '') {
             foodImage(b).then((response) => {
@@ -76,9 +78,29 @@ function Meal() {
         }
     }
 
-    // UseEffect to get the images
+    // Function to get the nutritional information
+    const getNutritional = (b, l, d) => {
+        if (b !== '' && l !== '' && d !== '') {
+            foodNutritional(b).then((response) => {
+                console.log(response);
+                setBNutritional({ ...bNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+            }).catch((error) => console.log(error));
+            foodNutritional(l).then((response) => {
+                console.log(response);
+                setLNutritional({ ...lNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+            }).catch((error) => console.log(error));
+            foodNutritional(d).then((response) => {
+                console.log(response);
+                setDNutritional({ ...dNutritional, calories: response.data.calories, fat: response.data.fat, protein: response.data.protein });
+            }).catch((error) => console.log(error));
+        }
+    }
+
+    // UseEffect to get the images and nutritional information
     useEffect(() => {
         getMealImage(meals.breakfast, meals.lunch, meals.dinner);
+        console.log(bNutritional, lNutritional, dNutritional);
+        // getNutritional(meals.breakfast, meals.lunch, meals.dinner);
         
     }, [meals]);
 
@@ -142,11 +164,19 @@ function Meal() {
                     </Col>
                 </motion.div>
             </Row>
-
-
-            <motion.div animate={{ scale: animate ? 1 : 0 }} className='nutr d-flex justify-content-around'>
+            <Row>
+                <Col size="md-12">
+                    <div className='nutritional d-flex justify-content-center'>
+                         <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
+                    </div>
+                    
+                </Col>
+            </Row>
+           
+            <motion.div animate={{ scale: animateNutr ? 1 : 0 }} className='nutr d-flex justify-content-around'>
+                
                 <Row>
-                    <Col size="md-12">
+                    <Col className="" size="md-12">
                         <h3>Nutritional Information</h3>
                         <p>Calories: {nutritional.calories}</p>
                         <p>Carbohydrates: {nutritional.carbohydrates}</p>
