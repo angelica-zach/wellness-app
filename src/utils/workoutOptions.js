@@ -7,7 +7,7 @@ const workoutOptions = [
     image: "/cardio.png",
     title: "Cardio",
     description:
-      "Cardio is a great way to get your heart rate up and burn calories.",
+      "Cardio is a great way to get your heart rate up, burn calories and improve your health.",
   },
   {
     id: uuid(),
@@ -31,7 +31,7 @@ const workoutOptions = [
     image: "/yoga_icon.png",
     title: "Yoga",
     description:
-      "Yoga is a great way to improve flexibility, strength, and balance.",
+      "Yoga is a great way to improve flexibility, strength, and your overall balance.",
   },
   {
     id: uuid(),
@@ -39,14 +39,15 @@ const workoutOptions = [
     image: "/pilates.png",
     title: "Pilates",
     description:
-      "Pilates is a great way to improve core strength, flexibility, and posture.",
+      "Pilates is a great way to improve core strength, flexibility, and especially posture.",
   },
   {
     id: uuid(),
     embedId: "aO1boUJhjvk",
     image: "/relax.png",
     title: "Rest",
-    description: "Rest is an important part of any fitness routine.",
+    description:
+      "Rest is an important part of any fitness routine. Make sure you recover fully.",
   },
 ];
 
