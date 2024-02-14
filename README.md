@@ -52,6 +52,7 @@ Download by pressing the green code button and git clone into your terminal . Al
   axios
   beautiful-dnd
   uuid
+  framer-motion
 ## Technologies used
 Bootstrap
 React
