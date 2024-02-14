@@ -1,6 +1,6 @@
 import React from "react";
-import ListDisplay from "../Components/skincarelist";
-import Stretch from "../Components/stretchplayer";
+import ListDisplay from "./Components/skincarelist";
+import Stretch from "./Components/stretchplayer";
 function SelfCare() {
   return (
     <div>
