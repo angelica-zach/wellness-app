@@ -36,6 +36,7 @@ Download by pressing the green code button and git clone into your terminal . Al
 
 
 ## Screenshot
+<img width="917" alt="image" src="https://github.com/angelica-zach/wellness-app/assets/147160016/2ceeed5d-af5f-47f1-9e89-ff01ff069916">
 
 
 
@@ -51,6 +52,7 @@ Download by pressing the green code button and git clone into your terminal . Al
   axios
   beautiful-dnd
   uuid
+  framer-motion
 ## Technologies used
 Bootstrap
 React

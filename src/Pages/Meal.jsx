@@ -135,85 +135,70 @@ function Meal() {
                 </div>
                 <div className='d-flex justify-content-center'>
                     <button onClick={() => {
-                        setAnimate(!animate);
+                        setAnimate(true);
                     }} type="submit" className="btn btn-success d-flex justify-content-center col-md-2">
                         Plan Yor Meals
                     </button>
                 </div>
             </form>
 
-
-            <Row>
-                <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
-                    <Col size="md-4">
-                        <h3>Breakfast</h3>
-                        <Image src={bImages} />
-                        <h4>{meals.breakfast}</h4>
-                        <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
-                    </Col>
-                    <Col size="md-4">
-                        <h3>Lunch</h3>
-                        <Image src={lImages} />
-                        <h4>{meals.lunch}</h4>
-                        <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
-                    </Col>
-                    <Col size="md-4">
-                        <h3>Dinner</h3>
-                        <Image src={dImages} />
-                        <h4>{meals.dinner}</h4>
-                        <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Nutritional Info</button></a></h3>
-                    </Col>
-                </motion.div>
-            </Row>
-            <Row>
-                <Col size="md-12">
-                    <div className='nutritional d-flex justify-content-center'>
-                        <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
-                    </div>
-
-                </Col>
-            </Row>
-
-            <motion.div animate={{ scale: animateNutr ? 1 : 0 }} className='nutr d-flex flex-column justify-content-around'>
-
+            <Container>
                 <Row>
-
-                    <Col size="md-3">
-
-
-                        <p>
-                            <strong>Calories:</strong> {nutritional.calories}
-                        </p>
-
-                    </Col>
-                    <Col size="md-3">
-
-                        <p>
-                            <strong>Carbohydrates:</strong> {nutritional.carbohydrates}
-                        </p>
-
-                    </Col>
-                    <Col size="md-3">
-
-                        <p>
-                            <strong>Fat:</strong> {nutritional.fat}
-                        </p>
-
-                    </Col>
-                    <Col size="md-3">
-
-                        <p>
-                            <strong>Protein:</strong> {nutritional.protein}
-                        </p>
-
+                    <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
+                        <Col size="md-4">
+                            <h3>Breakfast</h3>
+                            <Image src={bImages} />
+                            <h4>{meals.breakfast}</h4>
+                            <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                        </Col>
+                        <Col size="md-4">
+                            <h3>Lunch</h3>
+                            <Image src={lImages} />
+                            <h4>{meals.lunch}</h4>
+                            <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                        </Col>
+                        <Col size="md-4">
+                            <h3>Dinner</h3>
+                            <Image src={dImages} />
+                            <h4>{meals.dinner}</h4>
+                            <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                        </Col>
+                    </motion.div>
+                </Row>
+                <Row>
+                    <Col size="md-12">
+                        <motion.div animate={{ scale: animate ? 1 : 0 }} className='nutritional d-flex justify-content-center'>
+                            <button onClick={() => setAnimateNutr(!animateNutr)} className="btn btn-success d-flex justify-content-center col-md-2">Total Nutritional Info</button>
+                        </motion.div>
 
                     </Col>
-
-
-
                 </Row>
 
-            </motion.div>
+                <motion.div animate={{ scale: animateNutr ? 1 : 0 }} className='nutr d-flex flex-column justify-content-around'>
+                    <Row>
+                        <Col size="md-3">
+                            <p>
+                                <strong>Calories:</strong> {nutritional.calories}
+                            </p>
+                        </Col>
+                        <Col size="md-3">
+                            <p>
+                                <strong>Carbohydrates:</strong> {nutritional.carbohydrates}
+                            </p>
+                        </Col>
+                        <Col size="md-3">
+                            <p>
+                                <strong>Fat:</strong> {nutritional.fat}
+                            </p>
+                        </Col>
+                        <Col size="md-3">
+                            <p>
+                                <strong>Protein:</strong> {nutritional.protein}
+                            </p>
+                        </Col>
+                    </Row>
+                </motion.div>
+            </Container>
 
         </div >
     )
