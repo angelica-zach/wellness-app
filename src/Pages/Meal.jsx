@@ -14,6 +14,9 @@ function Meal() {
     const [diet, setDiet] = useState('');
     const [calories, setCalories] = useState(0);
 
+    //Set visible
+    const [visible, setVisible] = useState(false);
+
     // State to hold the meals
     const [meals, setMeals] = useState({ breakfast: '', lunch: '', dinner: '' });
 
@@ -29,6 +32,31 @@ function Meal() {
     // State to hold Animation
     const [animate, setAnimate] = useState(false);
     const [animateNutr, setAnimateNutr] = useState(false);
+
+    // State to hold window size
+    const [size, setSize] = useState({ width: undefined, height: undefined });
+
+    //Window size
+
+    useEffect(() => {
+        const handleResize = () => {
+            setSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            })
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        console.log(size)
+
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+
+
+
 
     // Function to plan the meals
     const planMeals = (e) => {
@@ -104,6 +132,7 @@ function Meal() {
 
     }, [meals]);
 
+
     return (
         <div className='meal-page'>
             <h1 id='meal-title'>Meal Planner</h1>
@@ -141,29 +170,51 @@ function Meal() {
                     </button>
                 </div>
             </form>
-
+            <div>
+                {size.width}
+            </div>
             <Container>
                 <Row>
-                    <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
-                        <Col size="md-4">
-                            <h3>Breakfast</h3>
-                            <Image src={bImages} />
-                            <h4>{meals.breakfast}</h4>
-                            <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
-                        </Col>
-                        <Col size="md-4">
-                            <h3>Lunch</h3>
-                            <Image src={lImages} />
-                            <h4>{meals.lunch}</h4>
-                            <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
-                        </Col>
-                        <Col size="md-4">
-                            <h3>Dinner</h3>
-                            <Image src={dImages} />
-                            <h4>{meals.dinner}</h4>
-                            <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
-                        </Col>
-                    </motion.div>
+                    {size.width >= 768 ? (
+                        <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
+                            <Col size="md-4 sm-12">
+                                <h3>Breakfast</h3>
+                                <Image src={bImages} />
+                                <h4>{meals.breakfast}</h4>
+                                <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                            </Col>
+                            <Col size="md-4">
+                                <h3>Lunch</h3>
+                                <Image src={lImages} />
+                                <h4>{meals.lunch}</h4>
+                                <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                            </Col>
+                            <Col size="md-4">
+                                <h3>Dinner</h3>
+                                <Image src={dImages} />
+                                <h4>{meals.dinner}</h4>
+                                <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                            </Col>
+                        </motion.div>) : (
+                        <motion.div
+                        style={{padding: "10%x"}}
+                            animate={{ scale: animate ? 1 : 0 }}>
+                            <Col size="12">
+                                <h3>Breakfast</h3>
+                                <Image src={bImages} />
+                                <h4>{meals.breakfast}</h4>
+                                <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                                <h3>Lunch</h3>
+                                <Image src={lImages} />
+                                <h4>{meals.lunch}</h4>
+                                <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                                <h3>Dinner</h3>
+                                <Image src={dImages} />
+                                <h4>{meals.dinner}</h4>
+                                <h3><a href={nutritionalInfo.dinner} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                            </Col>
+                        </motion.div>
+                    )}
                 </Row>
                 <Row>
                     <Col size="md-12">
