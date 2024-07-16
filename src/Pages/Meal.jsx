@@ -170,9 +170,6 @@ function Meal() {
                     </button>
                 </div>
             </form>
-            <div>
-                {size.width}
-            </div>
             <Container>
                 <Row>
                     {size.width >= 768 ? (
