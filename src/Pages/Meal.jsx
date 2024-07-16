@@ -8,6 +8,7 @@ import Alert from '../Components/Alert';
 import foodApi from '../utils/foodAPI';
 import foodImage from '../utils/foodImage';
 import foodNutritional from '../utils/foodNutiritional';
+import { json } from 'react-router-dom';
 
 function Meal() {
     // State to hold diet and calories
@@ -30,6 +31,9 @@ function Meal() {
     const [animate, setAnimate] = useState(false);
     const [animateNutr, setAnimateNutr] = useState(false);
 
+    const [data, setData] = useState({});
+
+
     // Function to plan the meals
     const planMeals = (e) => {
         e.preventDefault();
@@ -46,9 +50,18 @@ function Meal() {
 
 
         foodApi(calories, diet).then((response) => {
+
+            // Set the meals in local storage
+            localStorage.setItem('meals', JSON.stringify(response));
+
+            // Get the meals from local storage
+            let cont = JSON.parse(localStorage.getItem('meals'));
+
+
+            console.log(cont);
             // Set the meals
-            setMeals({ ...meals, breakfast: response.meals[0].title, lunch: response.meals[1].title, dinner: response.meals[2].title });
-            setNutritionalInfo({ ...nutritionalInfo, breakfast: response.meals[0].sourceUrl, lunch: response.meals[1].sourceUrl, dinner: response.meals[2].sourceUrl });
+            setMeals({ ...meals, breakfast: cont.meals[0].title, lunch: cont.meals[1].title, dinner: cont.meals[2].title });
+            setNutritionalInfo({ ...nutritionalInfo, breakfast: cont.meals[0].sourceUrl, lunch: cont.meals[1].sourceUrl, dinner: cont.meals[2].sourceUrl });
             console.log(nutritionalInfo);
 
             // Set the nutritional information
@@ -76,6 +89,7 @@ function Meal() {
                 setDImages(response.data.results[0].image);
             }).catch((error) => console.log(error));
         }
+
     }
 
     // Function to get the nutritional information
@@ -98,15 +112,59 @@ function Meal() {
 
     // UseEffect to get the images and nutritional information
     useEffect(() => {
+        // // Set the meal data in local storage
+        // displayContent();
+
         getMealImage(meals.breakfast, meals.lunch, meals.dinner);
         // console.log(bNutritional, lNutritional, dNutritional);
         // getNutritional(meals.breakfast, meals.lunch, meals.dinner);
 
+
+
     }, [meals]);
+
+    const displayContent = () => {
+
+        if (meals.breakfast != '') {
+            // This function will display the content of the page
+            // Set the meals in local storage
+            localStorage.setItem('meals', JSON.stringify(meals));
+
+
+            // Set the images in local storage
+            localStorage.setItem('bImages', bImages);
+            localStorage.setItem('lImages', lImages);
+            localStorage.setItem('dImages', dImages);
+
+            let content = {
+                meals: JSON.parse(localStorage.getItem('meals')),
+                bImages: localStorage.getItem('bImages'),
+                lImages: localStorage.getItem('lImages'),
+                dImages: localStorage.getItem('dImages'),
+            }
+
+            console.log(content);
+            localStorage.setItem('content', JSON.stringify(content));
+
+            setData(content);
+        }
+    }
+
 
     return (
         <div className='meal-page'>
             <h1 id='meal-title'>Meal Planner</h1>
+
+            {meals.map((meal, id) => (
+                <div key={id}>
+                    <h3>Breakfast</h3>
+                    <Image src={bImages} />
+                    <h4>{meals.breakfast}</h4>
+                    <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
+                </div>
+            
+            ))}
+
             <form onSubmit={planMeals}>
                 <div className='row forms'>
                     <div className='col-md-6 d-flex flex-column justify-content-center'>
@@ -145,19 +203,19 @@ function Meal() {
             <Container>
                 <Row>
                     <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
-                        <Col size="md-4">
+                        <Col size="md-4 col-sm-12">
                             <h3>Breakfast</h3>
                             <Image src={bImages} />
                             <h4>{meals.breakfast}</h4>
                             <h3><a href={nutritionalInfo.breakfast} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
                         </Col>
-                        <Col size="md-4">
+                        <Col size="md-4 col-sm-12">
                             <h3>Lunch</h3>
                             <Image src={lImages} />
                             <h4>{meals.lunch}</h4>
                             <h3><a href={nutritionalInfo.lunch} target="_blank"><button className="btn btn-success">Get Recipe</button></a></h3>
                         </Col>
-                        <Col size="md-4">
+                        <Col size="md-4 col-sm-12">
                             <h3>Dinner</h3>
                             <Image src={dImages} />
                             <h4>{meals.dinner}</h4>
