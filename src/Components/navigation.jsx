@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+
 function Navbar() {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -12,12 +17,13 @@ function Navbar() {
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
-            aria-expanded="false"
+            aria-expanded={!isNavCollapsed ? true : false}
             aria-label="Toggle navigation"
+            onClick={handleNavCollapse}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink
@@ -26,6 +32,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={handleNavCollapse}
                 >
                   Home
                 </NavLink>
@@ -37,6 +44,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={handleNavCollapse}
                 >
                   Meal Ideas
                 </NavLink>
@@ -48,11 +56,11 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={handleNavCollapse}
                 >
                   Workout Plans
                 </NavLink>
               </li>
-
               <li className="nav-item">
                 <NavLink
                   to="Selfcare"
@@ -60,6 +68,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
+                  onClick={handleNavCollapse}
                 >
                   Self Care
                 </NavLink>
