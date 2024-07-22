@@ -170,7 +170,7 @@ function Meal() {
                     </button>
                 </div>
             </form>
-            <Container>
+            <div className='meal-results'>
                 <Row>
                     {size.width >= 768 ? (
                         <motion.div animate={{ scale: animate ? 1 : 0 }} className='images d-flex justify-content-around align-items-center'>
@@ -246,7 +246,7 @@ function Meal() {
                         </Col>
                     </Row>
                 </motion.div>
-            </Container>
+            </div>
 
         </div >
     )
